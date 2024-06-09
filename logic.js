@@ -1,3 +1,8 @@
+//to add
+//add a sound when a player plays - different for X and O
+//modify reset button so that it works even if game hasnt been completed
+//add some sort of movement to the 
+
 let boxes = document.querySelectorAll(".box");
 let reset = document.querySelector("#reset");
 let result;
@@ -59,6 +64,9 @@ reset.addEventListener("click", () => {
     boxes.forEach((box) => {
         box.innerText = "";
         box.disabled = false;
-        result.remove();
+        if (document.body.contains(result)) 
+        {
+            result.remove();
+        } 
     });
 });
