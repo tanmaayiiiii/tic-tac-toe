@@ -33,7 +33,13 @@ body {
     color: rgb(150, 21, 21);
     font-size: 40px;
     margin : 2px;
+    transition: all 1ms ease-in 1ms;
 }
+
+.box:hover {
+    background-color: pink;
+}
+
 
 .flex-container {
     height:50vh;
