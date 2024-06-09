@@ -5,7 +5,7 @@
 
 let boxes = document.querySelectorAll(".box");
 let reset = document.querySelector("#reset");
-let result;
+let result = document.createElement("h1");
 let x = true;
 
 const winPattern = [[0, 1, 2],
@@ -44,7 +44,6 @@ boxes.forEach((box) => {
 
                 if ((boxes[pattern[0]].innerText == "X" && boxes[pattern[1]].innerText == "X" && boxes[pattern[2]].innerText == "X") || (boxes[pattern[0]].innerText == "O" && boxes[pattern[1]].innerText == "O" && boxes[pattern[2]].innerText == "O")) {
                     console.log("winner");
-                    result = document.createElement("h1");
                     boxes.forEach((box) => {
                         box.disabled = true;
                     });
@@ -53,6 +52,13 @@ boxes.forEach((box) => {
                     document.querySelector("body").append(result);
                 }
             });
+        }
+
+        if (turns == 9 && document.body.contains(result) == false)
+        {
+            console.log("draw");
+            result.innerText = "DRAW :/";
+            document.querySelector("body").append(result);
         }
 
     });
@@ -68,5 +74,6 @@ reset.addEventListener("click", () => {
         {
             result.remove();
         } 
+        turns = 0;
     });
 });
